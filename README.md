@@ -5,6 +5,6 @@
 
 Адрес репозитория: git+https://github.com/Stanislav920/movies-explorer-api.git
 
-https://api.movies360.nomoredomainsicu.ru
+Backend:https://api.movies360.nomoredomainsicu.ru
 
 158.160.110.218
