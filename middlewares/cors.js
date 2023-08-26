@@ -1,9 +1,9 @@
 const allowedCors = [
-  'https://stas.nomoreparties.co',
-  'http://stas.nomoreparties.co',
+  'https://movies360.nomoredomainsicu.ru',
+  'http://movies360.nomoredomainsicu.ru',
   'localhost:4000',
-  'https://api.stas.nomoreparties.co',
-  'http://api.stas.nomoreparties.co',
+  'https://api.movies360.nomoredomainsicu.ru',
+  'http://api.movies360.nomoredomainsicu.ru',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
