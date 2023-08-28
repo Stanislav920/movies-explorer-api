@@ -1,7 +1,7 @@
 const allowedCors = [
   'https://movies360.nomoredomainsicu.ru',
   'http://movies360.nomoredomainsicu.ru',
-  'localhost:4000',
+  'localhost:3000',
   'https://api.movies360.nomoredomainsicu.ru',
   'http://api.movies360.nomoredomainsicu.ru',
 ];
