@@ -46,7 +46,7 @@ module.exports.authorizeUser = (req, res, next) => {
 // Выхода пользователя
 
 module.exports.logoutUser = (req, res) => {
-  res.delete('jwt').send({ message: 'Выход из системы выполнен успешно' });
+  res.clearCookie('jwt').send({ message: 'Выход из системы выполнен успешно' });
 };
 
 // Регистрации пользователя
@@ -94,6 +94,8 @@ module.exports.updateUserData = (req, res, next) => {
     .catch((err) => {
       if (err.name instanceof ValidationError) {
         next(new BadRequestsError('Переданы некорректные данные пользователя'));
+      } if (err.code === DuplikateObjectError) {
+        next(new ConflictingRequestError('Пользователь с указанной почтой уже есть в системе'));
       } else { next(err); }
     });
 };

@@ -31,7 +31,7 @@ module.exports.deleteMovie = (req, res, next) => {
   Movie.findById(req.params.movieId)
     .orFail(() => next(new NotFoundError('Фильм по указанным данным не найден на сервере')))
     .then((movieItem) => {
-      if (!movieItem.owner.equals(req.user._id)) {
+      if (movieItem.owner.equals(req.user._id)) {
         return Movie.findByIdAndRemove(req.params.movieId).then(() => res.send({ message: 'Выбранный фильм успешно удалён' })).catch(next);
       } return next(new ForbiddenError('Вы не являетесь автором фильма, удаление невозможно'));
     })

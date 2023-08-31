@@ -7,7 +7,7 @@ const regular = /https?:\/\/(www\.)?[a-z0-9.-]{2,}\.[a-z]{2,}\/?[-._~:/?#[\]@!$&
 // Валидация авторизации.
 const validateUserAuthorize = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().min(6).max(40).email()
+    email: Joi.string().email()
       .required(),
     password: Joi.string()
       .required(),
