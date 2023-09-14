@@ -1,0 +1,36 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "API дипломной работы Веб-разработчик",
+  "main": "app.js",
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanislav920/movies-explorer-api.git"
+  },
+  "author": "Таргонский Станислав (Stanislav920)",
+  "license": "ISC",
+  "homepage": " https://stanislav920.github.io/movies-explorer-api/",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "celebrate": "^15.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-winston": "^4.2.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.2.2",
+    "validator": "^13.9.0",
+    "winston": "^3.10.0"
+  }
+}
