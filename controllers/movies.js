@@ -14,10 +14,36 @@ const ForbiddenError = require('../utils/repsone-errors/ForbiddenError');
 // Добавления фильма
 
 module.exports.addMovie = (req, res, next) => {
-  const { _id } = req.user;
+  const owner = req.user._id;
+  const {
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
+  } = req.body;
 
-  Movie.create({ owner: _id, ...req.body })
-    .then((movieItem) => res.status(createError).send(movieItem))
+  Movie.create({
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
+    owner,
+  })
+    .then((movie) => res.status(createError).send(movie))
     .catch((err) => {
       if (err instanceof ValidationError) {
         next(new BadRequestsError('Переданы некорректные данные карточки'));
