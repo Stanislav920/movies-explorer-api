@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const { regular } = require('../utils/validation');
-const User = require('./user');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -59,7 +58,7 @@ const movieSchema = new mongoose.Schema({
   owner: {
     required: true,
     type: mongoose.Schema.Types.ObjectId,
-    ref: User
+    ref: 'user'
   },
 
   movieId: {
