@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-// const validator = require('validator');
-const { regular } = require('../utils/validation');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
     validate: {
-      validator: (correct) => regular.test(correct),
+      validator: (correct) => validator.isEmail(correct),
       message: 'Почта пользователя введена неверно',
     }
   },
