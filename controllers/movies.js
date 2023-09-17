@@ -14,35 +14,9 @@ const ForbiddenError = require('../utils/repsone-errors/ForbiddenError');
 // Добавления фильма
 
 module.exports.addMovie = (req, res, next) => {
-  const owner = req.user._id;
-  const {
-    country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailerLink,
-    thumbnail,
-    movieId,
-    nameRU,
-    nameEN,
-  } = req.body;
+  const { _id } = req.user;
 
-  Movie.create({
-    country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailerLink,
-    thumbnail,
-    movieId,
-    nameRU,
-    nameEN,
-    owner,
-  })
+  Movie.create({ owner: _id, ...req.body })
     .then((movieItem) => res.status(createError).send(movieItem))
     .catch((err) => {
       if (err instanceof ValidationError) {
