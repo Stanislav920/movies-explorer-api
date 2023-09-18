@@ -6,7 +6,6 @@ const allowedCors = [
   'http://api.movies360.nomoredomainsicu.ru',
   'http://localhost:3000',
   'https://localhost:3000',
-  'http://localhost:8080 ',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
