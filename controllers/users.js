@@ -16,7 +16,6 @@ const createError = 201;
 const BadRequestsError = require('../utils/repsone-errors/BadRequestError');
 const UnauthorizedError = require('../utils/repsone-errors/UnauthorizedError');
 const ConflictingRequestError = require('../utils/repsone-errors/ConflictingRequestError');
-const NotFoundError = require('../utils/repsone-errors/NotFoundError');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -73,8 +72,7 @@ module.exports.registerUser = (req, res, next) => {
 // Получение ID пользователя.
 
 module.exports.getUserId = (req, res, next) => {
-  User.findById(req.params.userId)
-    .orFail(() => next(new NotFoundError('Пользователь по указанному ID не найден')))
+  User.findById(req.user._id)
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name instanceof CastError) {
@@ -89,7 +87,6 @@ module.exports.updateUserData = (req, res, next) => {
   const { name, email } = req.body;
 
   User.findByIdAndUpdate(req.user_id, { name, email }, { new: true, runValidators: true })
-    .orFail(() => next(new NotFoundError('Пользователь по указанному ID не найден')))
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name instanceof ValidationError) {
