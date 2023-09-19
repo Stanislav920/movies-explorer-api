@@ -35,7 +35,7 @@ module.exports.authorizeUser = (req, res, next) => {
           return next(new UnauthorizedError('Имя пользователя или (-и) пароль введены неверно'));
         }
 
-        const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'diploma-secret', { expiresIn: '7d' });
+        const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'super-secret', { expiresIn: '7d' });
 
         return res.send({ token });
       })
