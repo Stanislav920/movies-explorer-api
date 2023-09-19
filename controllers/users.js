@@ -74,7 +74,7 @@ module.exports.registerUser = (req, res, next) => {
 
 module.exports.getUserId = (req, res, next) => {
   User.findById(req.params.userId)
-    // .orFail(() => next(new NotFoundError('Пользователь по указанному ID не найден')))
+    .orFail(() => next(new NotFoundError('Пользователь по указанному ID не найден')))
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name instanceof CastError) {
