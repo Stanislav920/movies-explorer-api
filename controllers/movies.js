@@ -44,8 +44,7 @@ module.exports.deleteMovie = (req, res, next) => {
 // Получения списка фильмов
 
 module.exports.getMovieList = (req, res, next) => {
-  const owner = req.user._id;
-  Movie.find({ owner })
+  Movie.find({ owner: req.user._id })
     .then((movieItems) => res.send(movieItems))
     .catch(next);
 };
